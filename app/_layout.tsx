@@ -6,23 +6,23 @@ import { Stack } from 'expo-router';
 export default function RootLayout() {
   return (
     <Provider store={store}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen
-          name="products/[category]"
-          options={({ route }) => ({
-            title: (route.params as { category: string })?.category,
-          })}
-        />
-        <Stack.Screen
-          name="product/[id]"
-          options={({ route }) => ({
-            title: `Product Details`,
-          })}
-        />
-      </Stack>
+
+        <Stack>
+          {/* <Stack.Screen name="auth" options={{ headerShown: false }} /> */}
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="products/[category]"
+            options={({ route }) => ({
+              title: (route.params as { category: string })?.category,
+            })}
+          />
+          <Stack.Screen
+            name="product/[id]"
+            options={{
+              title: 'Product Details',
+            }}
+          />
+        </Stack>
     </Provider>
   );
 }
-
-
